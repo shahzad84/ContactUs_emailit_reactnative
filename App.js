@@ -1,14 +1,19 @@
-import Header from "./src/header";
-
 import * as React from "react";
-import { PaperProvider } from "react-native-paper";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Form from "./src/form";
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <PaperProvider>
-      <Header />
-    </PaperProvider>
+
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Home" >
+          <Stack.Screen name="Form" component={Form} />
+        </Stack.Navigator>
+      </NavigationContainer>
+
   );
 }
 
